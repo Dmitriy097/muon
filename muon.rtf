@@ -1,0 +1,91 @@
+{\rtf1\ansi\ansicpg1251\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\froman\fcharset0 Times-Roman;\f2\froman\fcharset0 Times-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue233;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c93333;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 sudo apt update && sudo apt upgrade -y\
+\
+sudo apt install -y curl git jq lz4 build-essential unzip\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 \uc0\u1059 \u1089 \u1090 \u1072 \u1085 \u1072 \u1074 \u1083 \u1080 \u1074 \u1072 \u1077 \u1084  \u1076 \u1086 \u1082 \u1077 \u1088  \u1080  \u1076 \u1086 \u1082 \u1077 \u1088  \u1082 \u1086 \u1084 \u1087 \u1086 \u1091 \u1079 :\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 sudo apt install -y ca-certificates curl gnupg lsb-release \
+\
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg\
+\
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null\
+\
+sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io\
+\
+sudo usermod -aG docker $USER\
+\
+newgrp docker\
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose\
+\
+sudo chmod +x /usr/local/bin/docker-compose\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 \uc0\u1042 \u1099 \u1082 \u1072 \u1095 \u1080 \u1074 \u1072 \u1077 \u1084  \u1076 \u1086 \u1082 \u1077 \u1088  \u1082 \u1086 \u1085 \u1090 \u1077 \u1081 \u1085 \u1077 \u1088 :\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 curl -o docker-compose.yml https://raw.githubusercontent.com/muon-protocol/muon-node-js/testnet/docker-compose-pull.yml\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 \uc0\u1047 \u1072 \u1087 \u1091 \u1089 \u1082 \u1072 \u1077 \u1084  \u1076 \u1086 \u1082 \u1077 \u1088  \u1082 \u1086 \u1085 \u1090 \u1077 \u1081 \u1085 \u1077 \u1088 :\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 docker compose up -d\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 \uc0\u1055 \u1088 \u1086 \u1074 \u1077 \u1088 \u1103 \u1077 \u1084  \u1088 \u1072 \u1073 \u1086 \u1090 \u1091 (\u1074  \u1073 \u1088 \u1072 \u1091 \u1079 \u1077 \u1088 \u1077 ):\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 http://<IP>:8000/status\
+#\uc0\u1079 \u1072 \u1084 \u1077 \u1085 \u1080 \u1090 \u1100  <IP> \u1085 \u1072  \u1072 \u1081 \u1087 \u1080  \u1074 \u1072 \u1096 \u1077 \u1075 \u1086  \u1089 \u1077 \u1088 \u1074 \u1077 \u1088 \u1072 \
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 \uc0\u1045 \u1089 \u1083 \u1080  \u1074 \u1099 \u1076 \u1072 \u1077 \u1090  \u1090 \u1077 \u1082 \u1089 \u1090  \u1074  \u1073 \u1088 \u1072 \u1091 \u1079 \u1077 \u1088 \u1077  - \u1079 \u1085 \u1072 \u1095 \u1080 \u1090  \u1074 \u1089 \u1077  \u1093 \u1086 \u1088 \u1086 \u1096 \u1086 , \u1080 \u1079  \u1085 \u1077 \u1075 \u1086  \u1082 \u1086 \u1087 \u1080 \u1088 \u1091 \u1077 \u1084  \u1079 \u1085 \u1072 \u1095 \u1077 \u1085 \u1080 \u1103  "address" \u1080  "peer id"\
+\uc0\u1055 \u1077 \u1088 \u1077 \u1093 \u1086 \u1076 \u1080 \u1084  \u1085 \u1072  {\field{\*\fldinst{HYPERLINK "https://alice.muon.net/join"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 \uc0\u1101 \u1090 \u1086 \u1090 }} \uc0\u1089 \u1072 \u1081 \u1090 , \u1087 \u1086 \u1076 \u1082 \u1083 \u1102 \u1095 \u1072 \u1077 \u1084  \u1082 \u1086 \u1096 \u1077 \u1083 \u1077 \u1082 , \u1087 \u1086 \u1083 \u1091 \u1095 \u1072 \u1077 \u1084  \u1090 \u1086 \u1082 \u1077 \u1085 \u1099 , \u1085 \u1072  3\u1084  \u1087 \u1091 \u1085 \u1082 \u1090 \u1077  \u1074  \u1087 \u1086 \u1083 \u1077  \u1074 \u1074 \u1086 \u1076 \u1080 \u1084  \u1079 \u1085 \u1072 \u1095 \u1077 \u1085 \u1080 \u1077  "address", \u1072  \u1074  \u1087 \u1086 \u1083 \u1077  \u1074 \u1074 \u1086 \u1076 \u1080 \u1084  \u1079 \u1085 \u1072 \u1095 \u1077 \u1085 \u1080 \u1077  "peer id"\
+\uc0\u1053 \u1077 \u1089 \u1082 \u1086 \u1083 \u1100 \u1082 \u1086  \u1084 \u1080 \u1085 \u1091 \u1090  \u1079 \u1072 \u1081 \u1084 \u1077 \u1090  \u1080 \u1085 \u1080 \u1094 \u1080 \u1072 \u1083 \u1080 \u1079 \u1072 \u1094 \u1080 \u1103  \u1085 \u1086 \u1076 \u1099 , \u1076 \u1072 \u1083 \u1077 \u1077  \u1077 \u1077  \u1089 \u1090 \u1072 \u1090 \u1091 \u1089  \u1076 \u1086 \u1083 \u1078 \u1077 \u1085  \u1089 \u1084 \u1077 \u1085 \u1080 \u1090 \u1100 \u1089 \u1103  \u1085 \u1072  "Active"\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f2\b\fs28 \cf0 \uc0\u1041 \u1077 \u1082 \u1072 \u1087  \u1085 \u1086 \u1076 \u1099 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs26 \cf0 docker exec -it muon-node ./node_modules/.bin/ts-node ./src/cmd keys backup > backup.json\
+cat backup.json\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\fs24 \cf0 \uc0\u1042 \u1099 \u1074 \u1086 \u1076  \u1082 \u1086 \u1084 \u1072 \u1085 \u1076 \u1099  \u1089 \u1086 \u1093 \u1088 \u1072 \u1085 \u1080 \u1090 \u1100 \
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f2\b\fs28 \cf0 \uc0\u1054 \u1073 \u1085 \u1086 \u1074 \u1083 \u1077 \u1085 \u1080 \u1077 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs26 \cf0 docker cp muon-node:/usr/src/muon-node-js/.env ./backup.env\
+\
+docker stop muon-node redis mongo \
+\
+docker rm muon-node redis mongo \
+\
+rm muon-node-js -rf\
+\
+curl -o docker-compose.yml https://raw.githubusercontent.com/muon-protocol/muon-node-js/testnet/docker-compose-pull.yml\
+\
+docker-compose pull\
+\
+docker-compose up -d\
+\
+docker cp backup.env muon-node:/usr/src/muon-node-js/backup.env\
+\
+docker exec -it muon-node ./node_modules/.bin/ts-node ./src/cmd keys restore backup.env\
+\
+docker restart muon-node\
+}
